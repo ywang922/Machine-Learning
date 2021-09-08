@@ -12,19 +12,6 @@ I have built and evaluated several machine-learning models to predict credit ris
 2. Ensemble-Learning
 
 - - -
-## Prerequisites
-#### numpy
-
-#### pandas
-
-#### pathlib
-
-#### sklearn
-
-#### collections
-
-#### imblearn
-- - -
 
 ## Resampling   
 
@@ -53,7 +40,4 @@ for each model, I:
 3. Printed the confusion matrix from `sklearn.metrics`.
 4. Generated a classification report using the `imbalanced_classification_report` from imbalanced learn.
 5. For the balanced random forest classifier only, printed the feature importance sorted in descending order (most important feature to least important) along with the feature score.
-
-# Built With
-
-#### Python  
+ 

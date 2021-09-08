@@ -1,48 +1,59 @@
-# Risky Analysis
-- - -
+# Risky Analysis 
 
-###  Ensemble Learning Final Questions
+![Credit Risk](Images/credit-risk.jpg)
 
+## Background 
 
-  #### Which model had the best balanced accuracy score?
+Auto loans, mortgages, student loans, debt consolidation ... these are just a few examples of credit and loans that people are seeking online. Peer-to-peer lending services such as LendingClub or Prosper allow investors to loan other people money without the use of a bank. However, investors always want to mitigate risk, so you have been asked by a client to help them use machine learning techniques to predict credit risk.
 
-  * ANSWER : 
-  The Easy Ensemble Classifier has the best balaned accurary score (0.925) which is higher than Balanced Random Forest Classifier accurary   score   (0.787)
+I have built and evaluated several machine-learning models to predict credit risk using free data from LendingClub. Credit risk is an inherently imbalanced classification problem (the number of good loans is much larger than the number of at-risk loans), so I have used different techniques for training and evaluating models with imbalanced classes, utilizing the imbalanced-learn and Scikit-learn libraries to build and evaluate models using the two following techniques:
 
-
-   #### Which model had the best recall score?
-
-   * ANSWER : 
-   Easy Ensemble Classifier model had the best recall score (0.94) which is higher than Balanced Random Forest Classifier recall score (0.91)
-
-   #### Which model had the best geometric mean score?
-
-   * ANSWER :
-   Easy Ensemble Classifier model had the best geometric mean score (0.93) which is much higher than Balanced Random Forest Classifier geometric mean score      (0.78)
-
-   #### What are the top three features?
-
-   * ANSWER :
-   The top thress features are total_rec_prncp (0.074),total_rec_int (0.064), and total_pymnt_inv (0.060)
+1. Resampling
+2. Ensemble-Learning
 
 - - -
+## Prerequisites
+#### numpy
 
-###  Credit Risk Resampling Final Questions
+#### pandas
 
-#### Which model had the best balanced accuracy score?
+#### pathlib
 
-   * ANSWER : 
-   SMOTE Oversampling model had the best balanced accuracy score (0.9937) which is the highest compare to models (Combination Sampling:0.9935; Undersampling: 0.987; Naive Random Oversampling:    0.795 ; Simple Logistic Regression: 0.5)
+#### sklearn
 
-#### Which model had the best recall score?
+#### collections
 
-   * ANSWER : 
-   Three models (Combination Sampling, Undersampling and SMOTE Oversampling) all have the same best recall score 0.99, that is the highest recall score. The other two models recall scores are    
-   lower (Naive Random Oversampling:0.61 ; Simple Logistic Regression:0.97)
+#### imblearn
+- - -
 
+## Resampling   
 
-#### Which model had the best geometric mean score?
+I used the [imbalanced learn](https://imbalanced-learn.readthedocs.io) library to resample the LendingClub data and build and evaluate logistic regression classifiers using the resampled data.
+then:
 
-   * ANSWER : 
-   Three models (Combination Sampling, Undersampling and SMOTE Oversampling) all have the same best geometric mean score 0.99, that's the highest geometric mean score. The other two models  
-   geometric mean scores are lower (Naive Random Oversampling:0.77 ; Simple Logistic Regression:0.00)
+1. Oversample the data using the `Naive Random Oversampler` and `SMOTE` algorithms.
+2. Undersample the data using the `Cluster Centroids` algorithm.
+3. Over- and under-sample using a combination `SMOTEENN` algorithm.
+
+For each of the above, I :   
+
+1. Trained a `logistic regression classifier` from `sklearn.linear_model` using the resampled data.
+2. Calculated the `balanced accuracy score` from `sklearn.metrics`.
+3. Calculated the `confusion matrix` from `sklearn.metrics`.
+4. Printed the `imbalanced classification report` from `imblearn.metrics`.
+
+## Ensemble Learning
+
+In this section, I trained and compared two different ensemble classifiers to predict loan risk and evaluate each model. I used the `balanced random forest classifier` and the `easy ensemble AdaBoost classifier`.
+
+for each model, I:
+
+1. Trained the model using the quarterly data from LendingClub provided in the `Resource` folder.
+2. Calculated the balanced accuracy score from `sklearn.metrics`.
+3. Printed the confusion matrix from `sklearn.metrics`.
+4. Generated a classification report using the `imbalanced_classification_report` from imbalanced learn.
+5. For the balanced random forest classifier only, printed the feature importance sorted in descending order (most important feature to least important) along with the feature score.
+
+# Built With
+
+#### Python  
